@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบโหวตสัตว์ทะเล 🌊</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ocean-bg min-h-screen">
+    <!-- Animated Bubbles -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-4xl font-bold text-center">
+                🌊 ระบบโหวตสัตว์ทะเล <span class="wave-emoji">👋</span>
+            </h1>
+            <p class="text-center mt-2 text-blue-100">โหวตสัตว์ทะเลที่คุณชอบที่สุด!</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-20 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-4 py-4">
+                <button onclick="app.showPage('animals')" class="nav-btn px-6 py-2 rounded-lg font-semibold transition bg-blue-500 text-white hover:bg-blue-600">
+                    🐠 สัตว์ทั้งหมด
+                </button>
+                <button onclick="app.showPage('leaderboard')" class="nav-btn px-6 py-2 rounded-lg font-semibold transition bg-purple-500 text-white hover:bg-purple-600">
+                    🏆 ตารางคะแนน
+                </button>
+                <button onclick="app.showPage('stats')" class="nav-btn px-6 py-2 rounded-lg font-semibold transition bg-green-500 text-white hover:bg-green-600">
+                    📊 สถิติ
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Animals Page -->
+        <div id="page-animals" class="page-content">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">🐋 สัตว์ทะเลทั้งหมด</h2>
+            <div id="animals-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Animals will be loaded here -->
+                <div class="text-center col-span-full">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+                    <p class="text-white mt-4">กำลังโหลดข้อมูล...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Page -->
+        <div id="page-leaderboard" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">🏆 ตารางคะแนนยอดนิยม</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-2xl p-6">
+                    <div id="leaderboard-content">
+                        <div class="text-center">
+                            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                            <p class="text-gray-600 mt-4">กำลังโหลดตารางคะแนน...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Page -->
+        <div id="page-stats" class="page-content hidden">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">📊 สถิติการโหวต</h2>
+            <div id="stats-content" class="max-w-6xl mx-auto">
+                <div class="text-center">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+                    <p class="text-white mt-4">กำลังโหลดสถิติ...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" onclick="app.closeModal(event)">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 overflow-hidden max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div id="modal-content">
+                <!-- Modal content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden transform transition-all">
+        <p id="toast-message"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-blue-200">🐠 ระบบโหวตสัตว์ทะเล - OOP Project 2024</p>
+            <p class="text-sm text-blue-300 mt-2">Made with ❤️ using PHP OOP, JavaScript OOP & MySQL</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
